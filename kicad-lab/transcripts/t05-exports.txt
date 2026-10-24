@@ -1,0 +1,60 @@
+$ mkdir -p fab
+$ kicad-cli pcb export gerbers --output fab/ blinker.kicad_pcb
+Plotted to 'fab/blinker-F_Cu.gtl'.
+Plotted to 'fab/blinker-B_Cu.gbl'.
+Plotted to 'fab/blinker-F_Silkscreen.gto'.
+Plotted to 'fab/blinker-B_Silkscreen.gbo'.
+Plotted to 'fab/blinker-F_Mask.gts'.
+Plotted to 'fab/blinker-B_Mask.gbs'.
+Plotted to 'fab/blinker-Edge_Cuts.gm1'.
+...
+Done.
+$ kicad-cli pcb export drill --output fab/ blinker.kicad_pcb
+Done.
+$ ls fab/
+blinker-B_Adhesive.gba
+blinker-B_Courtyard.gbr
+blinker-B_Cu.gbl
+blinker-B_Fab.gbr
+blinker-B_Mask.gbs
+blinker-B_Paste.gbp
+blinker-B_Silkscreen.gbo
+blinker-Edge_Cuts.gm1
+blinker-F_Adhesive.gta
+blinker-F_Courtyard.gbr
+blinker-F_Cu.gtl
+blinker-F_Fab.gbr
+blinker-F_Mask.gts
+blinker-F_Paste.gtp
+blinker-F_Silkscreen.gto
+blinker-Margin.gbr
+blinker-User_1.gbr
+blinker-User_2.gbr
+blinker-User_3.gbr
+blinker-User_4.gbr
+blinker-User_5.gbr
+blinker-User_6.gbr
+blinker-User_7.gbr
+blinker-User_8.gbr
+blinker-User_9.gbr
+blinker-User_Comments.gbr
+blinker-User_Drawings.gbr
+blinker-User_Eco1.gbr
+blinker-User_Eco2.gbr
+blinker-job.gbrjob
+blinker.drl
+$ head -8 fab/blinker.drl
+M48
+; DRILL file {KiCad 8.0.9-8.0.9-0~ubuntu24.04.1}
+; FORMAT={-:-/ absolute / metric / decimal}
+FMAT,2
+METRIC
+T1C0.400
+T2C0.800
+$ kicad-cli pcb export pos --output blinker-pos.csv \
+    --units mm --format csv blinker.kicad_pcb
+$ head -4 blinker-pos.csv
+Ref,Val,Package,PosX,PosY,Rot,Side
+"C1","47uF","CP_Radial_D5.0mm_P2.00mm",48.000000,-22.000000,0.000000,top
+"C2","10nF","C_Disc_D4.7mm_W2.5mm_P5.00mm",12.000000,-24.000000,0.000000,top
+"D1","LED","LED_D5.0mm",46.000000,-32.000000,0.000000,top

@@ -1,0 +1,14 @@
+$ kicad-cli pcb drc blinker.kicad_pcb --output drc-report.txt
+Found 0 violations
+Found 0 unconnected items
+Saved DRC Report to drc-report.txt
+$ cat drc-report.txt
+** Drc report for blinker.kicad_pcb **
+
+** Found 0 DRC violations **
+
+** Found 0 unconnected pads **
+
+** Found 0 Footprint errors **
+
+** End of Report **

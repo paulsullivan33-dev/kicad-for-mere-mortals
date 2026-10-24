@@ -1,0 +1,45 @@
+KiCad — the distilled commands
+====================================================================
+Placeholders: blinker is the sample project (chapters 4-11).
+Run from the project folder unless a path says otherwise.
+
+VERIFY THE INSTALL (chapter 3)
+--------------------------------------------------------------------
+  kicad-cli --version
+
+CHECK THE SCHEMATIC (chapter 6)
+--------------------------------------------------------------------
+  kicad-cli sch erc blinker.kicad_sch \
+    --output erc-report.txt
+  # read erc-report.txt: errors should be zero,
+  # every warning explainable out loud.
+
+THE NETLIST (chapter 7)
+--------------------------------------------------------------------
+  kicad-cli sch export netlist \
+    --output blinker.net blinker.kicad_sch
+
+CHECK THE BOARD (chapter 9)
+--------------------------------------------------------------------
+  kicad-cli pcb drc blinker.kicad_pcb \
+    --output drc-report.txt
+  # read drc-report.txt: violations zero,
+  # unconnected items zero.
+
+MANUFACTURING FILES (chapter 11)
+--------------------------------------------------------------------
+  mkdir -p fab
+  kicad-cli pcb export gerbers \
+    --output fab/ blinker.kicad_pcb
+  kicad-cli pcb export drill \
+    --output fab/ blinker.kicad_pcb
+  ls fab/
+  # one Gerber per layer plus one .drl;
+  # count them against your layer list.
+
+PARTS LIST AND PLACEMENT (chapter 11)
+--------------------------------------------------------------------
+  kicad-cli sch export bom \
+    --output blinker.csv blinker.kicad_sch
+  kicad-cli pcb export pos \
+    --output blinker-pos.csv blinker.kicad_pcb

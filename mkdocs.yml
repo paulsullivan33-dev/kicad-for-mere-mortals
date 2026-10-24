@@ -1,0 +1,28 @@
+site_name: KiCad for Mere Mortals
+site_description: Plain-language printed circuit board design with KiCad. Drawing a schematic that says what you mean, laying out the board it describes, checking both with ERC and DRC, keeping symbols and footprints straight, and exporting the Gerber and drill files a fabrication house needs to turn the design into a board you can hold.
+site_url: https://paulsullivan33-dev.github.io/kicad-for-mere-mortals/
+
+# Guides live at the repo root (nice for GitHub browsing).
+# The deploy workflow copies them into docs/ before building.
+theme:
+  name: material
+
+nav:
+  - Home: index.md
+  - What KiCad Is: what-kicad-is.md
+  - The Moving Parts: the-moving-parts.md
+  - Installing KiCad: installing-kicad.md
+  - Your First Project: your-first-project.md
+  - Drawing the Schematic: drawing-the-schematic.md
+  - Checking the Schematic: checking-the-schematic.md
+  - Footprints and the Board: footprints-and-the-board.md
+  - Laying Out the Board: laying-out-the-board.md
+  - Design Rules and DRC: design-rules-and-drc.md
+  - Libraries, Symbols and Footprints: libraries-symbols-and-footprints.md
+  - Ordering Boards: ordering-boards.md
+  - Recipes: recipes.md
+  - The Neighbours: the-neighbours.md
+  - Limits: limits.md
+  - Troubleshooting: troubleshooting.md
+  - Glossary: glossary.md
+  - Writing Criteria: criteria.md

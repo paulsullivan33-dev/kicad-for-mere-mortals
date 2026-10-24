@@ -1,0 +1,9 @@
+Ref,Val,Package,PosX,PosY,Rot,Side
+"C1","47uF","CP_Radial_D5.0mm_P2.00mm",48.000000,-22.000000,0.000000,top
+"C2","10nF","C_Disc_D4.7mm_W2.5mm_P5.00mm",12.000000,-24.000000,0.000000,top
+"D1","LED","LED_D5.0mm",46.000000,-32.000000,0.000000,top
+"J1","Conn_01x02_Pin","TerminalBlock_bornier-2_P5.08mm",5.000000,-8.000000,0.000000,top
+"R1","10k","R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",34.000000,-6.000000,0.000000,top
+"R2","10k","R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",34.000000,-16.000000,0.000000,top
+"R3","330","R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",34.000000,-26.000000,0.000000,top
+"U1","NE555P","DIP-8_W7.62mm",18.000000,-10.000000,0.000000,top

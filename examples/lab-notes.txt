@@ -1,0 +1,96 @@
+The lab — a real KiCad, driven headlessly
+====================================================================
+
+The lab ran the project's own software on
+the build machine (Ubuntu 24.04):
+
+  * KiCad 8.0.9 from the project's own
+    stable PPA (ppa:kicad/kicad-8.0-releases)
+    — the install route chapter 3
+    recommends — with the matching 8.0.9
+    symbol, footprint and template
+    libraries. The 3D model library was
+    not installed (the guide treats it as
+    optional throughout).
+  * The build VM's system package state
+    was busy with another job, so the lab
+    unpacked the same .deb packages into a
+    private directory and ran the genuine
+    binaries from there. Nothing about the
+    software under test changes; only the
+    install location is unusual, and
+    criteria.md names it.
+
+How the sample board was made. The lab
+has no display, so Blinker was built the
+way KiCad stores it: as files.
+
+  * The schematic was authored as a
+    .kicad_sch file using the genuine
+    library symbols (NE555P, the Device
+    passives, the power symbols) embedded
+    from the installed 8.0.9 libraries,
+    wired per chapter 5's design. It was
+    then verified, not assumed: ERC
+    (t01) reports zero errors and zero
+    warnings, and the exported netlist
+    (t02) was read net by net against the
+    intended circuit — all seven nets
+    match, pin by pin.
+  * The board was built with a pcbnew
+    script that loads the real footprints
+    from the installed libraries, assigns
+    each pad the net the schematic's
+    netlist says it has, routes the two
+    layers and saves a normal
+    .kicad_pcb. DRC (t04) is the judge:
+    the final board reports zero
+    violations and zero unconnected pads.
+
+The iterations were the point. The first
+ERC run reported 68 findings: 47 were the
+lab's own coordinates sitting off the
+1.27 mm connection grid, 19 were missing
+library tables in the sandbox account,
+and 2 were real — the discharge pin
+(U1 pin 7) was not connected, because
+its wire ended on the middle of another
+wire with no junction. Splitting the
+rail so the three wires share an
+endpoint, snapping the layout to the
+grid and configuring the library tables
+took ERC to zero. The first DRC run
+found two pairs of crossing tracks
+(chapter 9's exact failure) and, later,
+a ground branch that shorted a capacitor
+pad and a via drilled too close to a
+chip pin. Each was fixed by re-routing,
+and the report after each fix is what
+the transcripts keep.
+
+One honest limitation. Filling the
+ground zone is a GUI act (open the board,
+press B). KiCad 8.0's zone filler cannot
+run outside the application — it crashes
+in the standalone scripting module, with
+or without a virtual display — so the
+lab could not fill the zone headlessly.
+The saved board therefore also routes
+ground as wide tracks on the bottom
+layer, underneath where the zone goes:
+open it, press B, and the zone fills
+over a ground net that is already
+complete. DRC and the manufacturing
+exports (t05) verify the board either
+way, and criteria.md marks the zone
+fill itself documented-only.
+
+What stayed documentary: clicking
+through the editors (the guide describes
+the menus and keys; the lab drove the
+same operations through the file formats
+and the CLI), placing a real order with
+a fabrication house (the exports a fab
+consumes were generated and read back,
+but no order was sent), the 3D viewer,
+and circuit simulation.
