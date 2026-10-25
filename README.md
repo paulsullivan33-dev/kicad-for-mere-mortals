@@ -117,3 +117,19 @@ reports and its manufacturing files live
 in `kicad-lab/blinker/`; the lab's
 transcripts are in `kicad-lab/transcripts/`
 and its notes in `examples/lab-notes.txt`.
+
+---
+
+## Part of the series
+
+This guide is one of the [For Mere Mortals](https://paulsullivan33-dev.github.io/mere-mortals/) guides: plain-language guides to the tools programmers and makers use.
+
+Related guides:
+
+- [Soldering & Basic Electronics for Mere Mortals](https://paulsullivan33-dev.github.io/soldering-for-mere-mortals/)
+- [Arduino for Mere Mortals](https://paulsullivan33-dev.github.io/arduino-for-mere-mortals/)
+- [CAD for Mere Mortals](https://paulsullivan33-dev.github.io/cad-for-mere-mortals/)
+
+## License
+
+The writing in this guide is licensed under [CC BY 4.0](https://github.com/paulsullivan33-dev/kicad-for-mere-mortals/blob/main/LICENSE). Code examples and lab scripts are licensed under the [MIT License](https://github.com/paulsullivan33-dev/kicad-for-mere-mortals/blob/main/LICENSE-CODE).

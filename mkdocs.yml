@@ -1,6 +1,7 @@
 site_name: KiCad for Mere Mortals
 site_description: Plain-language printed circuit board design with KiCad. Drawing a schematic that says what you mean, laying out the board it describes, checking both with ERC and DRC, keeping symbols and footprints straight, and exporting the Gerber and drill files a fabrication house needs to turn the design into a board you can hold.
 site_url: https://paulsullivan33-dev.github.io/kicad-for-mere-mortals/
+copyright: 'Part of <a href="https://paulsullivan33-dev.github.io/mere-mortals/">For Mere Mortals</a> · Text <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, code MIT'
 
 # Guides live at the repo root (nice for GitHub browsing).
 # The deploy workflow copies them into docs/ before building.
